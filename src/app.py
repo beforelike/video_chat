@@ -158,16 +158,11 @@ def create_ui() -> gr.Blocks:
         start_btn.click(fn=app.start, outputs=status_text)
         stop_btn.click(fn=app.stop, outputs=status_text)
 
-        demo.load(
-            fn=app.get_frame,
-            outputs=video_output,
-            every=0.033,
-        )
-        demo.load(
-            fn=app.get_detection_summary,
-            outputs=detection_text,
-            every=0.5,
-        )
+        video_timer = gr.Timer(0.033)
+        summary_timer = gr.Timer(0.5)
+
+        video_timer.tick(fn=app.get_frame, outputs=video_output)
+        summary_timer.tick(fn=app.get_detection_summary, outputs=detection_text)
 
     return demo
 
