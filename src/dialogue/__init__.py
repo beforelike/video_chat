@@ -1,1 +1,5 @@
-"""对话管理模块：规则模板 + LLM 路由（Day 1 晚 / Day 2 实现）。"""
+"""对话管理模块：规则模板 + LLM 路由。"""
+
+from src.dialogue.manager import DialogueManager, EVENT_TEMPLATES
+
+__all__ = ["DialogueManager", "EVENT_TEMPLATES"]
